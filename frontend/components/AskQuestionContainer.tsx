@@ -90,6 +90,8 @@ const AskQuestionContainer = () => {
             message={item.message}
           />
         ))}
+
+        {loading && <ChatMessage sender="ai" message="Thinking..." />}
       </div>
 
       <QuestionForm
