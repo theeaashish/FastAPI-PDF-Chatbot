@@ -1,20 +1,10 @@
-"use client";
-import FileUpload from "@/components/FileUpload";
-import Header from "@/components/Header";
-import React, { useRef } from "react";
+import AskQuestionContainer from "@/components/AskQuestionContainer";
+import React from "react";
 
 const Home = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleUploadClick = () => {
-    inputRef.current?.click();
-  };
-
   return (
-    <div>
-      <Header onUploadClick={handleUploadClick} />
-
-      <FileUpload inputRef={inputRef}/>
+    <div >
+      <AskQuestionContainer />
     </div>
   );
 };
