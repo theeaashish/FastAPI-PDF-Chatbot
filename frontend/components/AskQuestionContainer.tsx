@@ -4,7 +4,6 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { askQuestion } from "@/lib/api";
 import QuestionForm from "./QuestionForm";
-import ResponseDisplay from "./ResponseDisplay";
 import ChatMessage from "./ChatMessage";
 
 const AskQuestionContainer = () => {
@@ -82,6 +81,10 @@ const AskQuestionContainer = () => {
         className="hidden"
       />
 
+      {error && (
+        <div className="text-red-600 text-sm text-center my-4">{error}</div>
+      )}
+
       <div className="md:px-40 px-8 mt-30 pb-30 overflow-auto">
         {chatResponse.map((item, index) => (
           <ChatMessage
@@ -99,7 +102,7 @@ const AskQuestionContainer = () => {
         question={question}
         isLoading={loading}
         onQuestionChange={handleQuestionChange}
-        onFileChange={handleFileChange}
+        // onFileChange={handleFileChange}
         onSubmit={handleSubmit}
       />
     </div>

@@ -5,7 +5,7 @@ interface QuestionFormProps {
   file: File | null;
   question: string;
   isLoading: boolean;
-  onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+//   onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onQuestionChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
@@ -14,7 +14,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
   file,
   question,
   isLoading,
-  onFileChange,
+//   onFileChange,
   onQuestionChange,
   onSubmit,
 }) => {
