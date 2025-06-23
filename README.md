@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FastAPI-PDF-Chatbot
+A web application that allows users to upload PDF documents and ask questions about their content using AI-powered natural language processing.
+
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or higher)
+- Python (v3.8 or higher)
+- Google Gemini API key
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Backend Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Navigate to the backend directory:
+   ```bash
+   cd backend## Features
+- **PDF Upload**: Upload any PDF document for analysis
+- **Question Answering**: Ask questions about the content of your PDF
+- **AI-Powered Responses**: Get intelligent answers using Google's Gemini AI model
+- **Responsive UI**: Clean, modern interface that works on desktop and mobile devices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+### Backend
+- **FastAPI**: High-performance Python web framework
+- **LangChain**: Framework for developing applications powered by language models
+- **PyMuPDF**: PDF processing library for text extraction
+- **Google Gemini AI**: Advanced language model for question answering
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend
+- **Next.js**: React framework for building the user interface
+- **React**: JavaScript library for building user interfaces
+- **Tailwind CSS**: Utility-first CSS framework for styling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+├── backend/                # FastAPI server
+│   ├── main.py            # Main application file with API endpoints
+│   └── requirements.txt   # Python dependencies
+└── frontend/              # Next.js client
+    ├── app/               # Next.js app directory
+    ├── components/        # React components
+    ├── lib/               # Utility functions and API clients
+    ├── public/            # Static assets
+    └── svg/               # SVG components
+## Getting Started
+### Prerequisites
+- Node.js (v18 or higher)
+- Python (v3.8 or higher)
+- Google Gemini API key
+### Backend Setup
+1. Navigate to the backend directory:
+cd backend
+2. Create a virtual environment:
+python -m venv venv
