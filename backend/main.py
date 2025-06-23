@@ -24,7 +24,7 @@ app = FastAPI()
 # allow frontend request
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "https://fast-api-pdf-chatbot.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -55,11 +55,10 @@ def extract_text_from_pdf(file_path: str) -> str:
 # api endpoint to upload a pdf and extract its text
 @app.post("/upload-pdf/")
 async def upload_pdf(file: UploadFile = File(...)):
-    
+
     if not file.filename.endswith(".pdf"):
         return {"error": "only pdf are allowed"}
-    
-    
+
     file_location = os.path.join(UPLOAD_DIR, file.filename)
 
     # save the uploaded file to the disk
@@ -92,7 +91,6 @@ async def ask_question(file: UploadFile = File(...), question: str = Form(...)):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf", dir=TEMP_DIR) as tmp:
             tmp.write(await file.read())
             file_path = tmp.name
-            
 
         # extract text frpm pdf
         extracted_text = extract_text_from_pdf(file_path)
@@ -103,7 +101,7 @@ async def ask_question(file: UploadFile = File(...), question: str = Form(...)):
         # load gemini model
         chain = load_qa_chain(
             ChatGoogleGenerativeAI(
-                model="gemini-2.0-flash-001", 
+                model="gemini-2.0-flash-001",
                 google_api_key=os.getenv("GOOGLE_API_KEY")),
             chain_type="stuff",
         )
