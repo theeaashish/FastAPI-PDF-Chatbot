@@ -51,7 +51,15 @@ const AskQuestionContainer = () => {
       if (result?.answer) {
         setChatResponse((prev) => [
           ...prev,
-          { sender: "ai", message: result.answer },
+          {
+            sender: "ai",
+            message: result.answer
+              .replace(/\*\*/g, "") 
+              .replace(/\*/g, "") 
+              .replace(/^[-*]\s+/gm, "") 
+              .replace(/\s{2,}/g, " ") 
+              .trim(),
+          },
         ]);
       } else {
         setChatResponse((prev) => [
